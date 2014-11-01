@@ -1,0 +1,21 @@
+{
+    "name": "silentworks/idiaz-2014",
+    "description": "Simple personal blog. ",
+    "type": "bolt-theme",
+    "keywords": ["theme", "purecss", "news", "simple", "blog", "clean"],
+    "require": {
+        "bolt/bolt": "~2.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name" : "Andrew Smith",
+            "email" : "a.smith+bolt@silentworks.co.uk"
+        }
+    ],
+    "extra": {
+        "bolt-screenshots": [
+            "preview.jpg"
+        ]
+    }
+}

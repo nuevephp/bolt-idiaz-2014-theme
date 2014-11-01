@@ -1,0 +1,39 @@
+{% extends '_layout.twig' %}
+
+{% block pageTitle %}
+    {% if search is defined %}
+        {{ __('Search results for <b> %search% </b>.', { '%search%': search|escape }) }}
+    {% endif %}
+    {# if used for listing a taxonomy: #}
+    {% if taxonomytype is defined %}
+        {{ __('Overview for') }}
+        {% if taxonomy.options[slug] is defined %}
+            {{ taxonomy.options[slug] }}
+        {% else %}
+            {{ slug }}
+        {% endif %}
+        {# taxonomies are fetched unordered by design. If we specified an order in config.yml, sort them here: #}
+        {% set records = records|order(app.config.get('general/listing_sort')) %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% for record in records %}
+        <!-- A single idea -->
+        <section class="idea">
+            <header class="idea-header">
+                {#<img class="post-avatar" alt="Tilo Mitra's avatar" height="48" width="48" src="/img/common/tilo-avatar.png">#}
+
+                <h2 class="idea-title"><a href="{{ record.link }}">{{ record.title }}</a></h2>
+
+                {#<p class="post-meta">
+                    By <a href="#" class="post-author">Tilo Mitra</a> under <a class="post-category post-category-design" href="#">CSS</a> <a class="post-category post-category-pure" href="#">Pure</a>
+                </p>#}
+            </header>
+
+            <div class="idea-description">
+                {{ record.excerpt(220) }}
+            </div>
+        </section>
+    {% endfor %}
+{% endblock %}

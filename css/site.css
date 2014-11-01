@@ -1778,6 +1778,12 @@ https://github.com/yui/pure/blob/master/LICENSE.md
   .pure-menu.pure-menu-open {
     background-color: transparent;
     border: none; }
+  .pure-menu li.current ul {
+    left: 0;
+    margin-left: 1em;
+    position: relative;
+    top: 0;
+    visibility: visible; }
   .pure-menu li a {
     background-color: #00A6D5;
     color: #fff;
@@ -1816,12 +1822,11 @@ https://github.com/yui/pure/blob/master/LICENSE.md
       color: #666;
       font-family: Georgia, "Cambria", serif; }
 
-.idea-back, .idea-edit {
+.link-next, .link-prev {
   text-decoration: none; }
 
-.idea-edit {
-  float: right;
-  font-size: 0.8em; }
+.link-next {
+  float: right; }
 
 #idea-edit-form input, #idea-edit-form textarea {
   border: 1px solid #eee;
@@ -1834,6 +1839,7 @@ https://github.com/yui/pure/blob/master/LICENSE.md
 #footer {
   background-color: #365D78;
   color: #fff;
+  font-size: 13px;
   text-align: center; }
   #footer a {
     color: #fff; }
@@ -1845,7 +1851,7 @@ https://github.com/yui/pure/blob/master/LICENSE.md
     padding: 1em 1em 1.4em; }
 
   .l-box {
-    padding: 4em 1em; }
+    padding: 4em 1em 2em; }
 
   .pure-menu {
     display: block; }
@@ -1856,6 +1862,9 @@ https://github.com/yui/pure/blob/master/LICENSE.md
   .sidebar {
     bottom: 0;
     position: fixed;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 3em;
     top: 0; }
 
   .content {

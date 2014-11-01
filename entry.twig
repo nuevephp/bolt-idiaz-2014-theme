@@ -3,12 +3,12 @@
 {% block pageTitle %}
 {% set previous = record.previous('id') %}
 {% if previous %}
-    <a href="{{ previous.link }}" class="idea-back">&laquo; {{ previous.title }}</a>
+    <a href="{{ previous.link }}" class="link-prev">&laquo; {{ previous.title }}</a>
 {% endif %}
 -
 {% set next = record.next('id') %}
 {% if next %}
-    <a href="{{ next.link }}" class="idea-edit">{{ next.title }} &raquo;</a>
+    <a href="{{ next.link }}" class="link-next">{{ next.title }} &raquo;</a>
 {% endif %}
 {% endblock %}
 

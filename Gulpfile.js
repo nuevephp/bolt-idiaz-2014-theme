@@ -20,7 +20,7 @@ var banner = ['/**',
     ''].join('\n');
 
 var paths = {
-    twigDir: '../view/**/*.twig',
+    twigDir: '**/*.twig',
     jsDir: 'js/',
     js: 'js/**/*.js',
     scss: 'scss/**/*.scss',
@@ -35,7 +35,7 @@ var config = {
 
 gulp.task('server', function (next) {
     browserSync({
-        proxy: "idiaz.app",
+        proxy: "bolt2.app",
         notify: false,
         online: true,
         open: 'external'
