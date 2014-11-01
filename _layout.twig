@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idiaz</title>
+    <link rel="stylesheet" href="{{ paths.theme }}/css/site.css">
+</head>
+
+<body>
+    <div id="layout" class="pure-g">
+        <div class="sidebar pure-u-1 pure-u-md-1-4">
+            <div class="l-box">
+                <h1 class="brand-title">{{ app.config.get('general/sitename') }}</h1>
+                <h3 class="brand-tagline">Sharing ideas to generate ideas.</h3>
+
+                {#<a href="signup.html" class="pure-button pure-button-primary">Login</a> <a href="signup.html" class="pure-button pure-button-primary">Sign Up</a>#}
+            </div>
+
+            <a class="menu-link" href="#">
+                <span></span>
+            </a>
+
+            <div class="pure-menu pure-menu-open">
+                <ul>
+                    <li><a href="{{ paths.root }}">Home</a></li>
+                    <li><a href="">Featured</a></li>
+                    <li class="idea-create"><a href="">New Idea</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content pure-u-1 pure-u-md-3-4">
+            <h2 class="content-subhead">{% block pageTitle %}{% endblock %}</h2>
+
+            <div class="ideas">
+            {% block content %}{% endblock %}
+            </div>
+        </div>
+
+        <div id="footer" class="pure-u-1 pure-u-md-1-4">
+            <div class="s-box">
+                Copyright &copy; {{ "now"|date('Y') }} {{ app.config.get('general/sitename') }}Idiaz | Powered by <a href="http://bolt.cm">Bolt</a>
+            </div>
+        </div>
+    </div>
+    <script src="{{ paths.theme }}/dist/main.js"></script>
+</body>
+</html>

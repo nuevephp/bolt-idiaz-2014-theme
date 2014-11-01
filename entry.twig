@@ -1,0 +1,40 @@
+{% extends '_layout.twig' %}
+
+{% block pageTitle %}
+{% set previous = record.previous('id') %}
+{% if previous %}
+    <a href="{{ previous.link }}" class="idea-back">&laquo; {{ previous.title }}</a>
+{% endif %}
+-
+{% set next = record.next('id') %}
+{% if next %}
+    <a href="{{ next.link }}" class="idea-edit">{{ next.title }} &raquo;</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+    <section class="idea">
+        <header class="idea-header">
+            {#<img class="post-avatar" alt="Tilo Mitra's avatar" height="48" width="48" src="/img/common/tilo-avatar.png">#}
+
+            <h2 class="idea-title">{{ record.title }}</h2>
+
+            {#<p class="post-meta">
+                By <a href="#" class="post-author">Tilo Mitra</a> under <a class="post-category post-category-design" href="#">CSS</a> <a class="post-category post-category-pure" href="#">Pure</a>
+            </p>#}
+        </header>
+
+        <div class="idea-description">
+            {{ record.body }}
+        </div>
+    </section>
+
+    {#<div class="comments">
+        <header class="comments-header">
+            <h2 class="comments-subhead">Comments</h2>
+        </header>
+        <section class="comment">
+            This is just a test comment.
+        </section>
+    </div>#}
+{% endblock %}
