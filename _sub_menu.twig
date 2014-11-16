@@ -1,16 +1,40 @@
 {% macro display_menu_item(item, loop) %}
-<li class="index-{{ loop.index }}{% if loop.first %} first{% endif %}{% if item|current %} current {% endif %}{% if loop.last %} last{% endif %}">
-    <a href="{{ item.link }}" {% if item.title is defined %}title='{{ item.title|escape }}'{% endif %}
-       class='{% if item|current %}current {% endif %}{% if item.class is defined %}{{item.class}}{% endif %}'>{{item.label}}</a>
 
-    {% if item.submenu is defined %}
-        <ul class="sub-menu">
-            {% for submenu in item.submenu %}
-                {{ _self.display_menu_item(submenu, loop) }}
-            {% endfor %}
-        </ul>
+    {# Define the list item class #}
+    {% set li_class = 'index-'~loop.index %}
+    {% if loop.first %}
+        {% set li_class = li_class~' first ' %}
     {% endif %}
-</li>
+    {% if item|current %}
+        {% set li_class = li_class~' current ' %}
+    {% endif %}
+    {% if loop.last %}
+        {% set li_class = li_class~' last ' %}
+    {% endif %}
+
+    {# Define the anchor link class #}
+    {% set a_class = '' %}
+    {% if item|current %}
+        {% set a_class = current %}
+    {% endif %}
+    {% if item.class is defined %}
+        {% set a_class = current~' '~item.class %}
+    {% endif %}
+
+    <li class="{{ li_class }}">
+        <a href="{{ item.link }}"
+           {% if item.title is defined %}title="{{ item.title|escape }}"{% endif %}
+           class="{{ a_class }}">{{item.label}}</a>
+
+        {% if item.submenu is defined %}
+            <ul class="sub-menu">
+                {% for submenu in item.submenu %}
+                    {{ _self.display_menu_item(submenu, loop) }}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </li>
+
 {% endmacro %}
 
 <nav class="pure-menu pure-menu-open {{name}}">
