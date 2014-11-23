@@ -15,10 +15,10 @@
     {# Define the anchor link class #}
     {% set a_class = '' %}
     {% if item|current %}
-        {% set a_class = current %}
+        {% set a_class = 'current' %}
     {% endif %}
     {% if item.class is defined %}
-        {% set a_class = current~' '~item.class %}
+        {% set a_class = 'current' ~ item.class %}
     {% endif %}
 
     <li class="{{ li_class }}">
